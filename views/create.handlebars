@@ -1,0 +1,40 @@
+<div class="create-container">
+  <div class="create-card">
+    <div class="create-column">
+        <img id="created-image" src="" />
+    </div>
+    <div class="divider"></div>
+    <div class="create-column">
+      <h2 class="form-title">Save a video</h2>
+
+      <form class="input-form" action="/videos/create" method="post" >
+
+        <label class="form-label" for="title">Title</label>
+        <input id="title-input" name="title" maxlength="50" value="{{video.title}}"/>
+        {{#with video.errors.title as |error|}}
+        <span class="error">{{error.message}}</span>
+        {{/with}}
+
+        <label class="form-label" for="description">Description</label>
+        <textarea id="description-input" name="description">{{video.description}}</textarea>
+        {{#with video.errors.description as |error|}}
+        <span class="error">{{error.message}}</span>
+        {{/with}}
+
+        <label class="form-label" for="url" >Video Url</label>
+        <input id="url-input" name="url" oninput="handleChange" value="{{video.url}}"/>
+        {{#with video.errors.url as |error|}}
+        <span class="error">{{error.message}}</span>
+        {{/with}}
+
+        <div class="form-navigation">
+          <button class="button submit-button" id="submit-button" type="submit">
+            <p>Create new</p>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
